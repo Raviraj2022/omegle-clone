@@ -1,7 +1,6 @@
 import { Socket } from "socket.io";
 import { RoomManager } from "./RoomManager";
 
-
 export interface User {
   socket: Socket;
   name: string;
@@ -38,6 +37,7 @@ export class UserManager {
       return;
     }
     const room = this.roomManager.createRoom(user1, user2);
+    this.clearQueue();
   }
 
   initHandlers(socket: Socket) {
